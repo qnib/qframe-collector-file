@@ -9,8 +9,12 @@ import (
 	"github.com/zpatrick/go-config"
 )
 
+const (
+	version = "0.0.0.0"
+)
+
 func Run(qChan qtypes.QChan, cfg config.Config) {
-	log.Println("[II] Start file collector")
+	log.Printf("[II] Start file collector v%s", version)
 	fPath, err := cfg.String("collector.file.path")
 	if err != nil {
 		log.Println("[EE] No file path for collector.file.path set")
