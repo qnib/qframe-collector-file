@@ -13,14 +13,26 @@ const (
 	version = "0.0.1"
 )
 
-func Run(qChan qtypes.QChan, cfg config.Config) {
+type Plugin struct {
+	QChan qtypes.QChan
+	Cfg config.Config
+}
+
+func NewPlugin(qChan qtypes.QChan, cfg config.Config) Plugin {
+	return Plugin{
+		QChan: qChan,
+		Cfg: cfg,
+	}
+}
+
+func (p *Plugin) Run() {
 	log.Printf("[II] Start file collector v%s", version)
-	fPath, err := cfg.String("collector.file.path")
+	fPath, err := p.Cfg.String("collector.file.path")
 	if err != nil {
 		log.Println("[EE] No file path for collector.file.path set")
 		return
 	}
-	fileReopen, err := cfg.BoolOr("collector.file.reopen", true)
+	fileReopen, err := p.Cfg.BoolOr("collector.file.reopen", true)
 	t, err := tail.TailFile(fPath, tail.Config{Follow: true, ReOpen: fileReopen})
 	if err != nil {
 		log.Printf("[WW] File collector failed to open %s: %s", fPath, err)
@@ -28,6 +40,6 @@ func Run(qChan qtypes.QChan, cfg config.Config) {
 	for line := range t.Lines {
 		qm := qtypes.NewQMsg("collector", "fPath")
 		qm.Msg = line.Text
-		qChan.Data.Send(qm)
+		p.QChan.Data.Send(qm)
 	}
 }
