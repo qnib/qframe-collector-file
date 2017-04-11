@@ -27,12 +27,6 @@
 			"revisionTime": "2017-03-28T15:39:02Z"
 		},
 		{
-			"checksumSHA1": "zodCK6AG5/I4EcNPTma0cRFls1k=",
-			"path": "github.com/grafov/bcast",
-			"revision": "15c6a671b975da343a7b04bba6e330e7dc4904b9",
-			"revisionTime": "2017-03-04T07:09:54Z"
-		},
-		{
 			"checksumSHA1": "pjrfmwxpsR/8X6vkhU5uWkXC1oQ=",
 			"path": "github.com/hpcloud/tail",
 			"revision": "faf842bde7ed83bbc3c65a2c454fae39bc29a95f",
@@ -63,16 +57,16 @@
 			"revisionTime": "2017-02-07T02:33:46Z"
 		},
 		{
-			"checksumSHA1": "Fmefc2A1jP0emwjGc1I2ediSDjM=",
-			"path": "github.com/qnib/qframe/types",
-			"revision": "30c95fdc857ebf43b22a2086c959f6062eaec0e6",
-			"revisionTime": "2017-04-06T14:22:06Z"
+			"checksumSHA1": "0ZAGa3Ib2DSTohMb1OsjuahQS6E=",
+			"path": "github.com/qnib/qframe-types",
+			"revision": "65a07da05a86736305fa6ea8356baf5eddbd5f5c",
+			"revisionTime": "2017-04-11T20:27:50Z"
 		},
 		{
-			"checksumSHA1": "k+JI0tuuWFAsjjqpvMxG0XlSzaY=",
-			"path": "github.com/qnib/qframe/utils",
-			"revision": "30c95fdc857ebf43b22a2086c959f6062eaec0e6",
-			"revisionTime": "2017-04-06T14:22:06Z"
+			"checksumSHA1": "E4pS76cF5huNrgXLvhDe80076BI=",
+			"path": "github.com/qnib/qframe-utils",
+			"revision": "c82a62f900990a781059e80781d9c943ade050ea",
+			"revisionTime": "2017-04-11T20:25:15Z"
 		},
 		{
 			"checksumSHA1": "m8hYD/alsufIYIM7sR06wbL+dKo=",
@@ -105,5 +99,5 @@
 			"revisionTime": "2017-04-07T17:21:22Z"
 		}
 	],
-	"rootPath": "githhub.com/qnib/qframe-collector-file"
+	"rootPath": "github.com/qnib/qframe-collector-file"
 }

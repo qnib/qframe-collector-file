@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/hpcloud/tail"
-	"github.com/qnib/qframe/types"
+	"github.com/qnib/qframe-types"
 	"github.com/zpatrick/go-config"
 )
 
