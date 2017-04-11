@@ -1,12 +1,12 @@
 package qframe_collector_file
 
 import (
-"C"
-"log"
+	"C"
+	"log"
 
-"github.com/hpcloud/tail"
-"github.com/qnib/qframe/types"
-"github.com/zpatrick/go-config"
+	"github.com/hpcloud/tail"
+	"github.com/qnib/qframe/types"
+	"github.com/zpatrick/go-config"
 )
 
 const (
