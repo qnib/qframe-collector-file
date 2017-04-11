@@ -1,7 +1,6 @@
 package qframe_collector_file
 
 import (
-	"C"
 	"log"
 
 	"github.com/hpcloud/tail"
@@ -16,12 +15,14 @@ const (
 type Plugin struct {
 	QChan qtypes.QChan
 	Cfg config.Config
+	Name string
 }
 
-func NewPlugin(qChan qtypes.QChan, cfg config.Config) Plugin {
+func NewPlugin(qChan qtypes.QChan, cfg config.Config, name string) Plugin {
 	return Plugin{
 		QChan: qChan,
 		Cfg: cfg,
+		Name: name,
 	}
 }
 
@@ -38,7 +39,7 @@ func (p *Plugin) Run() {
 		log.Printf("[WW] File collector failed to open %s: %s", fPath, err)
 	}
 	for line := range t.Lines {
-		qm := qtypes.NewQMsg("collector", "fPath")
+		qm := qtypes.NewQMsg("collector", p.Name)
 		qm.Msg = line.Text
 		p.QChan.Data.Send(qm)
 	}
