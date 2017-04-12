@@ -2,6 +2,7 @@ package qframe_collector_file
 
 import (
 	"log"
+	"os"
 
 	"github.com/hpcloud/tail"
 	"github.com/qnib/qframe-types"
@@ -32,6 +33,11 @@ func (p *Plugin) Run() {
 	if err != nil {
 		log.Println("[EE] No file path for collector.file.path set")
 		return
+	}
+	create, _ := p.Cfg.BoolOr("collector.file.create", false)
+	if _, err := os.Stat(fPath); os.IsNotExist(err) && create {
+		f, _ := os.Create(fPath)
+		f.Close()
 	}
 	fileReopen, err := p.Cfg.BoolOr("collector.file.reopen", true)
 	t, err := tail.TailFile(fPath, tail.Config{Follow: true, ReOpen: fileReopen})
