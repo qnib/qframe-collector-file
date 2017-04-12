@@ -36,6 +36,7 @@ func (p *Plugin) Run() {
 	}
 	create, _ := p.Cfg.BoolOr("collector.file.create", false)
 	if _, err := os.Stat(fPath); os.IsNotExist(err) && create {
+		log.Printf("[DD] Create file: %s", fPath)
 		f, _ := os.Create(fPath)
 		f.Close()
 	}
