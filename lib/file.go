@@ -21,7 +21,7 @@ type Plugin struct {
 	Name string
 }
 
-func NewPlugin(qChan qtypes.QChan, cfg config.Config, name string) Plugin {
+func NewPlugin(qChan qtypes.QChan, cfg *config.Config, name string) Plugin {
 	return Plugin{
 		Plugin: qtypes.NewNamedPlugin(qChan, cfg, pluginTyp, pluginPkg, name, version),
 	}
